@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html charset="utf-8">
+<head>
+    <link rel="stylesheet" href="static/index.css" />
+
+</head>
+<body>
+    <div class="todoListBox">
+    <div class="header-box">
+      <div class="header-left">
+        <div>+</div>
+        <h2>Todo List</h2>
+      </div>
+      <div class="header-right">
+          <form action = "handleAdd" method = "post">
+            <input type="text" class="content-input" name="newContent">
+            <button class="headeradd" action='handleadd'>添加</button>
+           </form> 
+            <button class="headerAllSelect" onclick='location.href=("handlecleanse")'>清空</button>
+          
+      </div>
+    </div>
+    <div class="content">
+        {volist name="list" id="vo" offset=""}
+        <div style="margin-top:30px">
+            <div style="display:inline" class="content-left">
+            <label class="pos-rel">
+                <input type="checkbox" class="ace">
+                <span class="lbl"></span>
+            </label>
+            </div>
+            <div style="display:inline" class="content-item">
+                {$vo.content}
+            </div>
+            <div style="display:inline" class="content-right">
+              <button class="headerAllSelect" onclick='location.href=("handledelitem?id={$vo.id}")'>删除</button>
+            </div>
+        </div>
+        
+        {/volist}
+    </div>
+  </div>
+</body>
+
